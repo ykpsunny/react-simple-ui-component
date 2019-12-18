@@ -1,0 +1,17 @@
+.simple-btn-group{
+  .simple-btn:not(:first-child) {
+    border-left-color: transparent;
+  }
+  .simple-btn:not(:first-child):hover{
+    border-left-color: #ccc;
+  }
+  .simple-btn:first-child{
+    border-radius: 4px 0 0 4px;
+  }
+  .simple-btn:last-child{
+    border-radius:0 4px 4px 0;
+  }
+  .simple-btn{
+    border-radius: 0;
+  }
+}

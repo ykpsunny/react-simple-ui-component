@@ -4,15 +4,29 @@
   color: $color;
 }
 @mixin buttonHover ($bg: #eeeff5, $bc: #b3b5bd) {
-  background-color: #eeeff5;
-  border-color: #b3b5bd;
+  background-color: $bg;
+  border-color: $bc;
 }
 @mixin buttonActive ($bg: transparent) {
   background-color: $bg;
 }
+@mixin common {
+  @include buttonBase;
+
+  &:hover {
+    @include buttonHover;
+  }
+
+  &:active {
+    @include buttonActive;
+  }
+
+  &[disabled] {
+    @include buttonBase;
+  }
+}
 .simple-btn{
   display: inline-block;
-  min-width: 60px;
   padding: 0 15px;
   line-height: 32px;
   text-align: center;
@@ -20,16 +34,7 @@
   border-radius: 5px;
   cursor: pointer;
   &-default{
-    @include buttonBase;
-    &:hover{
-      @include buttonHover;
-    }
-    &:active{
-      @include buttonActive;
-    }
-    &[disabled]{
-      @include buttonBase;
-    }
+    @include common;
   }
   &-primary{
     @include buttonBase($bg:#e5f0ff, $color: #006fff, $bc: #e5f0ff);
@@ -55,7 +60,38 @@
       @include buttonBase($bg:#ff4d4f, $color: #fff, $bc: #ff4d4f);
     }
   }
+  &-dashed{
+    @include common;
+    border-style: dashed;
+  }
+  &.shape{
+    border-radius: 50%;
+    padding: 0;
+    min-width: 36px;
+  }
+  &-link{
+    color: #006fff;
+    font-size: 12px;
+    pointer-events: none;
+  }
+  &-block{
+    width: 100%;
+  }
   &[disabled]{
     cursor: not-allowed;
+  }
+  .btn-loading{
+    margin-right: 5px;
+    svg{
+      animation: loading 0.8s linear infinite;
+    }
+  }
+  @keyframes loading {
+    0%{
+      transform: rotate(0deg);
+    }
+    100%{
+      transform: rotate(360deg);
+    }
   }
 }

@@ -2,12 +2,21 @@ import React from 'react'
 
 import './Button-Group.scss'
 
-function ButtonGroup ({ children, ...rest }) {
+import classnames from 'classnames'
+
+import propTypes from 'prop-types'
+
+function ButtonGroup ({ className, children, ...rest }) {
+  const clas = classnames("simple-btn-group", className)
   return (
-    <div className='simple-btn-group' {...rest}>
+    <div className={clas} {...rest}>
       {children}
     </div>
   )
 }
+
+ButtonGroup.propTypes = {
+	className: propTypes.string
+};
 
 export default ButtonGroup

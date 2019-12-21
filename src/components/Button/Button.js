@@ -16,32 +16,41 @@ function Button ({
   shape,
   block,
   loading,
+  onClick,
   ...rest
 }) {
   const clas = ['simple-btn', className]
   const classNames = classnames(clas, {
 		[`simple-btn-${type}`]: type,
 		"simple-btn-shape": shape,
-    "simple-btn-block": block
-	})
+    "simple-btn-block": block,
+    [`simple-btn-loading`]: loading
+  })
+  function handleClick (e) {
+    if (loading) {
+      return
+    } 
+    onClick && onClick(e)
+  }
   if (type === 'link') {
     return (
-      <a
-        {...rest} 
-        className={classNames}
-      >
+			<a {...rest} className={classNames} onClick={handleClick}>
 				{children}
 			</a>
 		);
   }
   return (
-		<button {...rest} className={classNames} type={htmlType}>
-			{
-        loading && 
-        <i className='btn-loading'>
-          <BtnLoading />
-        </i>
-      }
+		<button
+			{...rest}
+			className={classNames}
+			type={htmlType}
+			onClick={handleClick}
+		>
+			{loading && (
+				<i className="btn-loading">
+					<BtnLoading />
+				</i>
+			)}
 			{children}
 		</button>
 	);
@@ -50,8 +59,9 @@ function Button ({
 Button.defaultProps = {
 	type: "default",
 	disabled: false,
-  children: "Default",
-  htmlType: 'button'
+	children: "Default",
+	htmlType: "button",
+	loading: false
 };
 
 Button.propTypes = {

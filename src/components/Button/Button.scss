@@ -105,7 +105,7 @@
 	&-block {
 		width: 100%;
 	}
-	&[disabled] {
+	&[disabled], &-loading {
 		cursor: not-allowed;
 	}
 	.btn-loading {

@@ -1,44 +1,60 @@
 import React from "react";
 
-import { Button } from "../components";
-
 import "./style.scss";
 
-const ButtonGroup = Button.ButtonGroup
+import '../components/styles/index.scss'
 
-function App() {
+import {
+	Switch,
+	BrowserRouter as Router,
+	Route,
+	NavLink,
+	Redirect
+} from "react-router-dom";
+
+import ButtonDemo from "../components/Button/demo";
+
+import ModalDemo from '../components/Modal/demo'
+
+const routerLink = [
+	{
+		path: "/button",
+		label: "Button"
+	},
+	{
+		path: "/modal",
+		label: "Modal"
+	}
+];
+
+function App({match}) {
+	console.log(match);
 	return (
-		<React.Fragment>
-			<div className="app-btn">
-				<Button onClick={e => console.log(e)} />
-				<Button type="primary" className="test">
-					Primary
-				</Button>
-				<Button type="danger" disabled={true}>
-					<span>Disabled</span>
-				</Button>
-				<Button
-					type="link"
-					disabled
-					target="_blank"
-					href="http://www.baidu.com"
-				/>
-				<Button loading={true} type="dashed" htmlType="button" />
-				<Button shape={true} type="danger">
-					A
-				</Button>
+		<Router>
+			<div className="app">
+				<aside>
+					{routerLink.map(item => {
+						return (
+							<NavLink
+								className="link-list"
+								activeClassName="active"
+								key={item.path}
+								to={item.path}
+							>
+								{item.label}
+							</NavLink>
+						);
+					})}
+				</aside>
+				<main>
+					<Switch>
+						<Route exact path={`${match.pah}button`} component={ButtonDemo} />
+						<Route exact path={`${match.path}modal`} component={ModalDemo} />
+						<Redirect from="/" to="/button" />
+					</Switch>
+				</main>
 			</div>
-			<div className="abc">
-				<Button type="danger" block={true}>
-					Block
-				</Button>
-				<ButtonGroup>
-					<Button>link</Button>
-					<Button>link</Button>
-					<Button>link</Button>
-				</ButtonGroup>
-			</div>
-		</React.Fragment>
+		</Router>
 	);
 }
 

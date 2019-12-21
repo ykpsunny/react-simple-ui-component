@@ -1,3 +1,28 @@
-.app-btn{
+.app{
   display: flex;
+  aside{
+    width: 25vw;
+    height: 100vh;
+    border-right: 1px solid #ccc;
+    .link-list{
+      height: 32px;
+      line-height: 32px;
+      text-decoration: none;
+      width: 100%;
+      display: block;
+      padding-left: 15px;
+      &:hover{
+        color: #06f;
+      }
+      &.active{
+        background-color: #abcedf;
+        color: #fff;
+      }
+    }
+  }
+  main{
+    background-color: #fff;
+    padding: 30px;
+    width: 75vw;
+  }
 }

@@ -1,0 +1,58 @@
+.simple-mask-wrapper{
+  position: absolute;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0,0,0,0.3);
+  .simple-container{
+    width: 500px;
+    background-color: #fff;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 8px;
+    .simple-modal-header{
+      height: 60px;
+      line-height: 60px;
+      position: relative;
+      .simple-modal-title{
+       text-align: center;
+       width: 100%; 
+      }
+      .simple-close-wrapper{
+        position: absolute;
+        right: 20px;
+        top: 0;
+        svg{
+          font-size: 24px;
+          cursor: pointer;
+          color: #3f3b3b;
+          &:hover{
+            color: #8d7575;
+          }
+        }
+      }
+    }
+    .simple-modal-header,
+    .simple-modal-footer{
+      padding: 0 20px;
+    }
+    .simple-modal-content{
+      border-top: 1px solid #ccc;
+      border-bottom: 1px solid #ccc;
+      padding: 20px;
+    } 
+    .simple-modal-footer{
+      height: 54px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      .simple-submit{
+        margin-left: 15px;
+      }
+    }
+  }
+}

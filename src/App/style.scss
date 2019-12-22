@@ -1,6 +1,6 @@
 .app{
   display: flex;
-  aside{
+  > aside{
     width: 25vw;
     height: 100vh;
     border-right: 1px solid #ccc;
@@ -20,7 +20,7 @@
       }
     }
   }
-  main{
+  > main{
     background-color: #fff;
     padding: 30px;
     width: 75vw;

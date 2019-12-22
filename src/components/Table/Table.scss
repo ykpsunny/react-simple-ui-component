@@ -1,0 +1,29 @@
+.simple-table-wrapper{
+  width: 100%;
+  .table-container{
+    border-collapse: collapse;
+    border: 1px solid #e8e8e8;
+    width: 100%;
+    tr{
+      border-bottom: 1px solid #e8e8e8;
+      width: 100%;
+      th{
+        background-color: #fafafa;
+      }
+      td, th{
+        padding: 10px 20px;
+        text-align: left;
+      }
+      td{
+        border-left: 1px solid #e8e8e8;
+      }
+    }
+    tbody{
+      tr{
+        &:hover{
+          background-color: #effaff;
+        }
+      }
+    }
+  }
+}

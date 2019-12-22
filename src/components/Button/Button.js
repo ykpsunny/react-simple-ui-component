@@ -61,6 +61,9 @@ Button.defaultProps = {
 	disabled: false,
 	children: "Default",
 	htmlType: "button",
+	loading: false,
+	shape: false,
+	target: 'new',
 	loading: false
 };
 

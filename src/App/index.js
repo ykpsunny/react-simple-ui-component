@@ -14,7 +14,9 @@ import {
 
 import ButtonDemo from "../components/Button/demo";
 
-import ModalDemo from '../components/Modal/demo'
+import ModalDemo from '../components/Modal/demo';
+
+import TableDemo from '../components/Table/demo'
 
 const routerLink = [
 	{
@@ -24,11 +26,14 @@ const routerLink = [
 	{
 		path: "/modal",
 		label: "Modal"
+	},
+	{
+		path: '/table',
+		label: 'Table'
 	}
 ];
 
-function App({match}) {
-	console.log(match);
+function App() {
 	return (
 		<Router>
 			<div className="app">
@@ -48,9 +53,10 @@ function App({match}) {
 				</aside>
 				<main>
 					<Switch>
-						<Route exact path={`${match.pah}button`} component={ButtonDemo} />
-						<Route exact path={`${match.path}modal`} component={ModalDemo} />
-						<Redirect from="/" to="/button" />
+						<Route exact path={`/button`} component={ButtonDemo} />
+						<Route exact path={`/modal`} component={ModalDemo} />
+						<Route exact path={`/table`} component={TableDemo} />
+						<Redirect from="/" to="/table" />
 					</Switch>
 				</main>
 			</div>

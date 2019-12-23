@@ -6,7 +6,7 @@ import propTypes from "prop-types";
 
 import classnames from "classnames";
 
-function Table({ titleColumns, dataSources }) {
+function Table({ titleColumns, dataSources, rowKey }) {
 	function renderTitle() {
 		const titleNode = titleColumns.map(item => {
 			const { key, title, dataIndex, ...rest } = item;
@@ -20,11 +20,11 @@ function Table({ titleColumns, dataSources }) {
 	}
 	function renderRow() {
 		return dataSources.map(item => {
-      const { key, className, ...rest } = item;
+      const { className, ...rest } = item;
 			return (
-				<tr key={key}>
+				<tr key={item[rowKey]} {...rest}>
 					{titleColumns.map(j => {
-            const { dataIndex } = j;
+						const { dataIndex } = j;
 						return <td key={dataIndex}>{item[dataIndex]}</td>;
 					})}
 				</tr>
@@ -43,11 +43,14 @@ function Table({ titleColumns, dataSources }) {
 	);
 }
 
-Table.defaultProps = {};
+Table.defaultProps = {
+	rowKey: 'key'
+};
 
 Table.propTypes = {
 	titleColumns: propTypes.arrayOf(propTypes.object),
-	dataSources: propTypes.arrayOf(propTypes.object)
+	dataSources: propTypes.arrayOf(propTypes.object),
+	rowKey: propTypes.string
 };
 
 export default Table;

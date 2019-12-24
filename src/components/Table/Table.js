@@ -6,13 +6,30 @@ import propTypes from "prop-types";
 
 import classnames from "classnames";
 
-function Table({ titleColumns, dataSources, rowKey }) {
+function Table({
+	titleColumns,
+	dataSources,
+	bordered,
+	rowKey,
+	align,
+	className,
+	fixedTitle
+}) {
+	const clas = classnames(
+		"simple-table-container",
+		`simple-${align}`,
+		{
+			"simple-table-border": bordered
+		},
+		className
+	);
 	function renderTitle() {
 		const titleNode = titleColumns.map(item => {
-			const { key, title, dataIndex, ...rest } = item;
+			const { title, className } = item,
+				clas = classnames("simple-column-title", className);
 			return (
-				<th key={key} {...rest}>
-					{title}
+				<th className={clas}>
+					<span className='text'>{title}</span>
 				</th>
 			);
 		});
@@ -20,12 +37,18 @@ function Table({ titleColumns, dataSources, rowKey }) {
 	}
 	function renderRow() {
 		return dataSources.map(item => {
-      const { className, ...rest } = item;
+			const { className } = item;
+			const clas = classnames("simple-row", className);
 			return (
-				<tr key={item[rowKey]} {...rest}>
+				<tr className={clas}>
 					{titleColumns.map(j => {
-						const { dataIndex } = j;
-						return <td key={dataIndex}>{item[dataIndex]}</td>;
+						const { dataIndex, className } = j,
+							clas = classnames("simple-column", className);
+						return (
+							<td key={dataIndex} className={clas}>
+								<span className='text'>{item[dataIndex]}</span>
+							</td>
+						);
 					})}
 				</tr>
 			);
@@ -33,9 +56,9 @@ function Table({ titleColumns, dataSources, rowKey }) {
 	}
 	return (
 		<div className="simple-table-wrapper">
-			<table className='table-container'>
-				<thead>
-					<tr>{renderTitle()}</tr>
+			<table className={clas}>
+				<thead className={classnames({ "fixed-title": fixedTitle })}>
+					<tr className="simple-row">{renderTitle()}</tr>
 				</thead>
 				<tbody>{renderRow()}</tbody>
 			</table>
@@ -44,13 +67,19 @@ function Table({ titleColumns, dataSources, rowKey }) {
 }
 
 Table.defaultProps = {
-	rowKey: 'key'
+	rowKey: "key",
+	bordered: false,
+	align: "left",
+	fixedTitle: false,
 };
 
 Table.propTypes = {
 	titleColumns: propTypes.arrayOf(propTypes.object),
 	dataSources: propTypes.arrayOf(propTypes.object),
-	rowKey: propTypes.string
+	rowKey: propTypes.string,
+	bordered: propTypes.bool,
+	align: propTypes.oneOf(["left", "center", "right"]),
+	fixedTitle: propTypes.bool
 };
 
 export default Table;

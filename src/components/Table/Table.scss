@@ -14,11 +14,14 @@
 			.simple-column-title {
 				padding: 10px 20px;
 				text-align: left;
-				.text {
+				.simple-text {
 					display: inline-block;
 					width: 90%;
 				}
 			}
+		}
+		.simple-fixed-title {
+			position: fixed;
 		}
 		tbody {
 			.simple-row {
@@ -38,6 +41,20 @@
 				text-overflow: ellipsis;
 				overflow: hidden;
 				white-space: nowrap;
+			}
+		}
+		.simple-table {
+			&-right {
+				.simple-column,
+				.simple-column-title {
+					text-align: right;
+				}
+			}
+			&-center {
+				.simple-column,
+				.simple-column-title {
+					text-align: center;
+				}
 			}
 		}
 	}

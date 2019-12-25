@@ -16,7 +16,9 @@ import ButtonDemo from "../components/Button/demo";
 
 import ModalDemo from '../components/Modal/demo';
 
-import TableDemo from '../components/Table/demo'
+import TableDemo from '../components/Table/demo';
+
+import PaginationDemo from '../components/Pagination/demo'
 
 const routerLink = [
 	{
@@ -30,6 +32,10 @@ const routerLink = [
 	{
 		path: '/table',
 		label: 'Table'
+	},
+	{
+		path: '/pagination',
+		label: 'Pagination'
 	}
 ];
 
@@ -56,7 +62,8 @@ function App() {
 						<Route exact path={`/button`} component={ButtonDemo} />
 						<Route exact path={`/modal`} component={ModalDemo} />
 						<Route exact path={`/table`} component={TableDemo} />
-						<Redirect from="/" to="/table" />
+						<Route exact path={`/pagination`} component={PaginationDemo} />
+						{/* <Redirect from="/" to="/table" /> */}
 					</Switch>
 				</main>
 			</div>

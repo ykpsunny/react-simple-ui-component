@@ -13,23 +13,25 @@ function Table({
 	rowKey,
 	align,
 	className,
-	fixedTitle
+	fixedTitle,
+	ellipsis
 }) {
 	const clas = classnames(
 		"simple-table-container",
-		`simple-${align}`,
+		`simple-table-${align}`,
 		{
-			"simple-table-border": bordered
+			"simple-table-border": bordered,
+			'simple-table-ellipsis': ellipsis
 		},
 		className
 	);
 	function renderTitle() {
 		const titleNode = titleColumns.map(item => {
-			const { title, className } = item,
+			const { title, className, key } = item,
 				clas = classnames("simple-column-title", className);
 			return (
-				<th className={clas}>
-					<span className='text'>{title}</span>
+				<th className={clas} key={key}>
+					<span className="simple-text">{title}</span>
 				</th>
 			);
 		});
@@ -37,16 +39,16 @@ function Table({
 	}
 	function renderRow() {
 		return dataSources.map(item => {
-			const { className } = item;
+			const { className, key } = item;
 			const clas = classnames("simple-row", className);
 			return (
-				<tr className={clas}>
+				<tr className={clas} key={key}>
 					{titleColumns.map(j => {
 						const { dataIndex, className } = j,
 							clas = classnames("simple-column", className);
 						return (
 							<td key={dataIndex} className={clas}>
-								<span className='text'>{item[dataIndex]}</span>
+								<span className="simple-text">{item[dataIndex]}</span>
 							</td>
 						);
 					})}
@@ -57,7 +59,7 @@ function Table({
 	return (
 		<div className="simple-table-wrapper">
 			<table className={clas}>
-				<thead className={classnames({ "fixed-title": fixedTitle })}>
+				<thead className={classnames({ "simple-fixed-title": fixedTitle })}>
 					<tr className="simple-row">{renderTitle()}</tr>
 				</thead>
 				<tbody>{renderRow()}</tbody>
@@ -71,6 +73,7 @@ Table.defaultProps = {
 	bordered: false,
 	align: "left",
 	fixedTitle: false,
+	ellipsis: true,
 };
 
 Table.propTypes = {
@@ -79,7 +82,8 @@ Table.propTypes = {
 	rowKey: propTypes.string,
 	bordered: propTypes.bool,
 	align: propTypes.oneOf(["left", "center", "right"]),
-	fixedTitle: propTypes.bool
+	fixedTitle: propTypes.bool,
+	ellipsis: propTypes.bool
 };
 
 export default Table;

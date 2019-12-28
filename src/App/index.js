@@ -20,6 +20,8 @@ import TableDemo from '../components/Table/demo';
 
 import PaginationDemo from '../components/Pagination/demo'
 
+import CheckBox from '../components/Checkbox/demo'
+
 const routerLink = [
 	{
 		path: "/button",
@@ -44,7 +46,7 @@ function App() {
 		<Router>
 			<div className="app">
 				<aside>
-					{routerLink.map(item => {
+					{/* {routerLink.map(item => {
 						return (
 							<NavLink
 								className="link-list"
@@ -55,10 +57,11 @@ function App() {
 								{item.label}
 							</NavLink>
 						);
-					})}
+					})} */}
 				</aside>
 				<main>
-					<Switch>
+					<CheckBox />
+					{/* <Switch>
 						<Route
 							exact
 							path={`/button`}
@@ -83,7 +86,7 @@ function App() {
 							component={PaginationDemo}
 						/>
 						<Redirect from="/" to="/pagination" />
-					</Switch>
+					</Switch> */}
 				</main>
 			</div>
 		</Router>

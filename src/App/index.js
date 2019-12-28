@@ -59,11 +59,30 @@ function App() {
 				</aside>
 				<main>
 					<Switch>
-						<Route exact path={`/button`} component={ButtonDemo} />
-						<Route exact path={`/modal`} component={ModalDemo} />
-						<Route exact path={`/table`} component={TableDemo} />
-						<Route exact path={`/pagination`} component={PaginationDemo} />
-						{/* <Redirect from="/" to="/table" /> */}
+						<Route
+							exact
+							path={`/button`}
+							render={() => <ButtonDemo></ButtonDemo>}
+						/>
+						<Route
+							exact
+							path={`/modal`}
+							render={() => <ModalDemo></ModalDemo>}
+							component={ModalDemo}
+						/>
+						<Route
+							exact
+							path={`/table`}
+							render={() => <TableDemo></TableDemo>}
+							component={TableDemo}
+						/>
+						<Route
+							exact
+							path={`/pagination`}
+							render={() => <PaginationDemo></PaginationDemo>}
+							component={PaginationDemo}
+						/>
+						<Redirect from="/" to="/pagination" />
 					</Switch>
 				</main>
 			</div>

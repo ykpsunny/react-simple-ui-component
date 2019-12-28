@@ -155,23 +155,23 @@ Modal.defaultProps = {
 };
 
 Modal.propTypes = {
-	afterClose: propTypes.func,
-	bodyStyle: propTypes.object,
-	cancelText: propTypes.string,
-	closable: propTypes.bool,
-	confirmLoading: propTypes.bool,
-	footer: propTypes.node,
-	keyboard: propTypes.bool,
-	maskStyle: propTypes.object,
-	mask: propTypes.bool,
-	okText: propTypes.string,
-	title: propTypes.string,
-	visible: propTypes.bool.isRequired,
-	wrapClassName: propTypes.string,
-	onCancel: propTypes.func.isRequired,
-	onOk: propTypes.func,
-	children: propTypes.node.isRequired,
-	maskClosable: propTypes.bool
+	afterClose: propTypes.func, // Modal 完全关闭后的回调
+	bodyStyle: propTypes.object, // Modal body 样式
+	cancelText: propTypes.string, // 取消按钮文字
+	closable: propTypes.bool, // 是否显示右上角的关闭按钮
+	confirmLoading: propTypes.bool, // 确定按钮 loading
+	footer: propTypes.node, // 底部内容，当不需要默认底部按钮时，可以设为 footer={null}
+	keyboard: propTypes.bool, // 是否支持键盘 esc 关闭
+	maskStyle: propTypes.object, // 遮罩层样式
+	mask: propTypes.bool, // 是否展示遮罩层
+	okText: propTypes.string, // 确认按钮文字
+	title: propTypes.string, // Modal 标题
+	visible: propTypes.bool.isRequired, // Modal 是否可见
+	wrapClassName: propTypes.string, // Modal 容器的类名
+	onCancel: propTypes.func.isRequired, // 点击遮罩层或右上角叉或取消按钮的回调
+	onOk: propTypes.func, // 点击确定回调
+	children: propTypes.node.isRequired, // Modal 内容
+	maskClosable: propTypes.bool // 点击遮罩层是否允许关闭
 };
 
 export default Modal;

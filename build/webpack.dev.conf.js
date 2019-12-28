@@ -30,7 +30,6 @@ module.exports = merge(baseConfig, {
 		port: 3000,
 		contentBase: path.join(__dirname, '../src/public'),
 		hot: true,
-		progress: true,
 		inline: true,
 		quiet: true
 	},

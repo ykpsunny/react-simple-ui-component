@@ -77,13 +77,13 @@ Table.defaultProps = {
 };
 
 Table.propTypes = {
-	titleColumns: propTypes.arrayOf(propTypes.object),
-	dataSources: propTypes.arrayOf(propTypes.object),
-	rowKey: propTypes.string,
-	bordered: propTypes.bool,
-	align: propTypes.oneOf(["left", "center", "right"]),
-	fixedTitle: propTypes.bool,
-	ellipsis: propTypes.bool
+	titleColumns: propTypes.arrayOf(propTypes.object), // Table 标题数据
+	dataSources: propTypes.arrayOf(propTypes.object), // Table 内容数据
+	rowKey: propTypes.string, // 表格行 key 的取值
+	bordered: propTypes.bool, // 是否显示 td 边框
+	align: propTypes.oneOf(["left", "center", "right"]), // 文字对齐方式
+	fixedTitle: propTypes.bool, // 列是否固定，可选
+	ellipsis: propTypes.bool // 文字超出是否隐藏打点展示
 };
 
 export default Table;

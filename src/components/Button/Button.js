@@ -68,16 +68,16 @@ Button.defaultProps = {
 };
 
 Button.propTypes = {
-	type: propTypes.oneOf(["primary", "default", "danger", "link", "dashed"]),
-	disabled: propTypes.bool,
-	children: propTypes.oneOfType([propTypes.element, propTypes.string]),
+	type: propTypes.oneOf(["primary", "default", "danger", "link", "dashed"]), // 设置按钮类型，可选值为 primary dashed danger link, 默认为 default
+	disabled: propTypes.bool, // 按钮是否禁用
+	children: propTypes.oneOfType([propTypes.element, propTypes.string]), // 内容
 	className: propTypes.string,
-	href: propTypes.string,
-	htmlType: propTypes.string,
-	shape: propTypes.bool,
-	target: propTypes.string,
-	onClick: propTypes.func,
-	loading: propTypes.bool
+	href: propTypes.string, // 点击跳转的地址(a 元素)
+	htmlType: propTypes.string, // 设置 button 原生的 type 值
+	shape: propTypes.bool, // 按钮是否圆形
+	target: propTypes.string, // 相当于 a 链接的 target 属性，href 存在时生效
+	onClick: propTypes.func, // 点击回调
+	loading: propTypes.bool // 设置按钮载入状态
 };
 
 export default Button

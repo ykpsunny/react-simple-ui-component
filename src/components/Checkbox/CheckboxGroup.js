@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo, useRef } from "react";
+import React, { useMemo } from "react";
 
 import "./CheckboxGroup.scss";
 
@@ -62,11 +62,11 @@ CheckboxGroup.defaultProps = {
 };
 
 CheckboxGroup.propTypes = {
-	name: propTypes.string,
-	disibled: propTypes.bool,
-	onChenge: propTypes.func,
-  value: propTypes.array,
-  className: propTypes.string
+	name: propTypes.string, // checkboxGroup 下所有 input[type="checkbox"] 的 name 属性
+	disibled: propTypes.bool, // 禁选所有子单选器
+	onChenge: propTypes.func, // 选项变化时的回调函数
+	value: propTypes.array, // 选中项
+	className: propTypes.string
 };
 
 export default CheckboxGroup;

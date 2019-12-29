@@ -4,7 +4,7 @@ import Checkbox from ".";
 
 import CheckboxGroup from "./CheckboxGroup";
 
-function ModalDemo() {
+function CheckboxDemo() {
 	let [value, setValue] = useState(['小明', 19])
 	return (
 		<div>
@@ -36,4 +36,4 @@ function ModalDemo() {
 	);
 }
 
-export default ModalDemo;
+export default CheckboxDemo;

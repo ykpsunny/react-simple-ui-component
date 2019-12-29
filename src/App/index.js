@@ -20,7 +20,9 @@ import TableDemo from '../components/Table/demo';
 
 import PaginationDemo from '../components/Pagination/demo'
 
-import CheckBox from '../components/Checkbox/demo'
+import CheckboxDemo from '../components/Checkbox/demo'
+
+import RadioDemo from '../components/Radio/demo'
 
 const routerLink = [
 	{
@@ -32,12 +34,16 @@ const routerLink = [
 		label: "Modal"
 	},
 	{
-		path: '/table',
-		label: 'Table'
+		path: "/table",
+		label: "Table"
 	},
 	{
-		path: '/pagination',
-		label: 'Pagination'
+		path: "/pagination",
+		label: "Pagination"
+	},
+	{
+		path: "/checkbox",
+		label: "checkbox"
 	}
 ];
 
@@ -60,7 +66,7 @@ function App() {
 					})} */}
 				</aside>
 				<main>
-					<CheckBox />
+					<RadioDemo />
 					{/* <Switch>
 						<Route
 							exact
@@ -84,6 +90,12 @@ function App() {
 							path={`/pagination`}
 							render={() => <PaginationDemo></PaginationDemo>}
 							component={PaginationDemo}
+						/>
+						<Route
+							exact
+							path={`/checkbox`}
+							render={() => <CheckboxDemo></CheckboxDemo>}
+							component={CheckboxDemo}
 						/>
 						<Redirect from="/" to="/pagination" />
 					</Switch> */}

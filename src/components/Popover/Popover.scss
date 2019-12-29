@@ -1,0 +1,33 @@
+.simple-popover-wrapper {
+	position: relative;
+	.simple-popover-content {
+		&-topCenter {
+			.simple-popover-inner {
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%, -50%);
+				position: absolute;
+				z-index: 1000;
+				background-color: #fff;
+				box-shadow: 0 0 5px 1px #ccc;
+			}
+			&::before {
+				bottom: 0;
+				left: 50%;
+				transform: translate(-50%, 50%);
+				box-shadow: 0 0 5px 1px #ccc;
+			}
+		}
+		&::before {
+			content: "";
+			z-index: 999;
+			position: absolute;
+			height: 0;
+			width: 0;
+			border: 10px solid #fff;
+		}
+	}
+	.simple-popover-children {
+		display: inline-block;
+	}
+}

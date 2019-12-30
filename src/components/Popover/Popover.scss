@@ -1,30 +1,65 @@
 .simple-popover-wrapper {
-	position: relative;
+	position: absolute;
 	.simple-popover-content {
-		&-topCenter {
-			.simple-popover-inner {
-				left: 50%;
-				top: 50%;
-				transform: translate(-50%, -50%);
-				position: absolute;
-				z-index: 1000;
-				background-color: #fff;
-				box-shadow: 0 0 5px 1px #ccc;
-			}
-			&::before {
-				bottom: 0;
-				left: 50%;
-				transform: translate(-50%, 50%);
-				box-shadow: 0 0 5px 1px #ccc;
-			}
+		background-color: #fff;
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+		padding: 10px 14px;
+	}
+	.simple-popover-arrow {
+		position: absolute;
+		border-style: solid;
+		border-width: 5px;
+		background-color: transparent;
+		width: 10px;
+		height: 10px;
+		transform: rotate(45deg);
+	}
+	&-topCenter {
+		.simple-popover-arrow {
+			bottom: -4px;
+			left: 50%;
+			box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.05);
+			border-top-color: transparent;
+			border-right-color: #fff;
+			border-bottom-color: #fff;
+			border-left-color: transparent;
+			transform: translateX(-50%) rotate(45deg);
 		}
-		&::before {
-			content: "";
-			z-index: 999;
-			position: absolute;
-			height: 0;
-			width: 0;
-			border: 10px solid #fff;
+	}
+	&-leftCenter {
+		.simple-popover-arrow {
+			top: 50%;
+			left: -4px;
+			box-shadow: -3px 3px 4px rgba(0, 0, 0, 0.05);
+			border-top-color: transparent;
+			border-right-color: transparent;
+			border-bottom-color: #fff;
+			border-left-color: #fff;
+			transform: translateY(-50%) rotate(45deg);
+		}
+	}
+	&-bottomCenter {
+		.simple-popover-arrow {
+			top: -4px;
+			left: 50%;
+			box-shadow: -3px -3px 4px rgba(0, 0, 0, 0.05);
+			border-top-color: #fff;
+			border-right-color: transparent;
+			border-bottom-color: transparent;
+			border-left-color: #fff;
+			transform: translateX(-50%) rotate(45deg);
+		}
+	}
+	&-rightCenter {
+		.simple-popover-arrow {
+			top: 50%;
+			right: -4px;
+			box-shadow: 3px -3px 4px rgba(0, 0, 0, 0.05);
+			border-top-color: #fff;
+			border-right-color: #fff;
+			border-bottom-color: transparent;
+			border-left-color: transparent;
+			transform: translateY(-50%) rotate(45deg);
 		}
 	}
 	.simple-popover-children {

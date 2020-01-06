@@ -1,9 +1,4 @@
-import React, {
-	useEffect,
-	useState,
-	Fragment,
-	useRef
-} from "react";
+import React, { useEffect, useState, Fragment, useRef } from "react";
 
 import "./Popover.scss";
 
@@ -29,6 +24,45 @@ function Popover({
 
 	const childrenRef = useRef();
 	const contentRef = useRef();
+
+	let triggerHandle = {}
+
+	switch (trigger) {
+		case "click":
+			triggerHandle.onClick = clickHandle;
+			break;
+		case "hover":
+			triggerHandle = {
+				onMouseEnter: mouseEnterHandle,
+				onMouseLeave: mouseLeaveHandle
+			};
+			break;
+		case "contextMenu":
+			triggerHandle.onContextMenu = contextMenuHandle;
+			break;
+		default:;
+	}
+
+	function mouseEnterHandle() {
+		show()
+	}
+
+	function mouseLeaveHandle() {
+		setTimer()
+	}
+
+	function setTimer () {
+		clearTimeout(Popover.timer);
+		Popover.timer = setTimeout(() => {
+			hide();
+		}, 0.1);
+	}
+
+	function contextMenuHandle(e) {
+		e.stopPropagation()
+		e.preventDefault();
+		show()
+	}
 
 	useEffect(() => {
 		setPosition();
@@ -80,7 +114,9 @@ function Popover({
 	function renderContent() {
 		return ReactDOM.createPortal(
 			<div className={clas} ref={contentRef} onClick={e => e.stopPropagation()}>
-				<div className={classnames("simple-popover-content", className)}>
+				<div
+					className={classnames("simple-popover-content", className)}
+				>
 					{content}
 				</div>
 				<div className="simple-popover-arrow"></div>
@@ -89,36 +125,47 @@ function Popover({
 		);
 	}
 
-	function clickHandle (e) {
+	function clickHandle(e) {
 		e.stopPropagation();
-		show()
+		show();
 	}
 
-	function show () {
+	function show() {
 		setVisible(true);
-		window.addEventListener('click', hide, false)
 	}
 
-	function hide () {
-		setVisible(false)
-		window.removeEventListener('click', hide, false)
+	function hide() {
+		setVisible(false);
 	}
+
+	function mouseWheelHandle() {
+		setPosition();
+	}
+
+	useEffect(() => {
+		if (trigger === "click" || trigger === 'contextMenu') {
+			window.addEventListener("click", hide, false);
+		}
+		return () => {
+			window.removeEventListener("click", hide, false);
+		};
+	});
 
 	useEffect(() => {
 		document.addEventListener("mousewheel", mouseWheelHandle, false);
 		return () => {
-			document.addEventListener('mousewheel', mouseWheelHandle, false)
-		}
-	}) 
-
-	function mouseWheelHandle () {
-		setPosition()
-	}
+			document.addEventListener("mousewheel", mouseWheelHandle, false);
+		};
+	});
 
 	return (
 		<Fragment>
 			{visible && renderContent()}
-			<div className="simple-popover-children" ref={childrenRef} onClick={clickHandle}>
+			<div
+				className="simple-popover-children"
+				ref={childrenRef}
+				{...triggerHandle}
+			>
 				{children}
 			</div>
 		</Fragment>
@@ -127,7 +174,8 @@ function Popover({
 
 Popover.defaultProps = {
 	position: "bottomCenter",
-	visible: true
+	visible: false,
+	trigger: "hover"
 };
 
 Popover.propTypes = {

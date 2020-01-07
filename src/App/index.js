@@ -26,6 +26,8 @@ import RadioDemo from '../components/Radio/demo'
 
 import PopoverDemo from '../components/Popover/demo'
 
+import DrawerDemo from "../components/Drawer/demo";
+
 const routerLink = [
 	{
 		path: "/button",
@@ -68,7 +70,7 @@ function App() {
 					})} */}
 				</aside>
 				<main>
-					<PopoverDemo />
+					<DrawerDemo />
 					{/* <Switch>
 						<Route
 							exact

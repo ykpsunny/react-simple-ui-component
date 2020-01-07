@@ -10,9 +10,9 @@ import { CloseIcon } from "PUBLIC/iconfont/icon";
 
 import classnames from "classnames";
 
-const modalOpenClass = "modal-open-body";
-
 import ReactDOM from "react-dom";
+
+const modalOpenClass = "modal-open-body";
 
 const toggleBodyClass = visible => {
 	const body = document.body;
@@ -126,7 +126,7 @@ function Modal({
 						<h2 className="simple-modal-title">{title}</h2>
 						{closable && (
 							<div className="simple-close-wrapper" onClick={onCancel}>
-								{CloseIcon}
+								<CloseIcon />
 							</div>
 						)}
 					</div>

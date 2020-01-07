@@ -138,9 +138,6 @@ function Popover({
 		setVisible(false);
 	}
 
-	function mouseWheelHandle() {
-		setPosition();
-	}
 
 	useEffect(() => {
 		if (trigger === "click" || trigger === 'contextMenu') {
@@ -148,13 +145,6 @@ function Popover({
 		}
 		return () => {
 			window.removeEventListener("click", hide, false);
-		};
-	});
-
-	useEffect(() => {
-		document.addEventListener("mousewheel", mouseWheelHandle, false);
-		return () => {
-			document.addEventListener("mousewheel", mouseWheelHandle, false);
 		};
 	});
 

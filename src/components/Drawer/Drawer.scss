@@ -1,0 +1,46 @@
+.simple-drawer-wrapper {
+  position: relative;
+  height: 100%;
+  background-color: #fff;
+	.simple-drawer-title {
+		padding: 10px 20px;
+		color: rgba(0, 0, 0, 0.85);
+		font-weight: 500;
+		font-size: 18px;
+    line-height: 22px;
+    position: relative;
+	}
+	.simple-drawer-colse {
+		position: absolute;
+		right: 20px;
+    top: 50%;
+    right: 10px;
+    transform: translate(-50%, -50%);
+		svg {
+			font-size: 20px;
+			cursor: pointer;
+			color: #3f3b3b;
+			&:hover {
+				color: #8d7575;
+			}
+		}
+	}
+}
+.simple-drawer{
+  &-left{
+    left: 0;
+    top: 0;
+  }
+  &-right{
+    right: 0;
+    top: 0;
+  }
+}
+.simple-drawer-mask{
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}

@@ -5,7 +5,7 @@ import { Drawer } from '.'
 function DrawerDemo () {
   return (
     <div>
-      <Drawer />
+      <Drawer getContainer={document.getElementById('root')}>Content</Drawer>
     </div>
 	);
 }

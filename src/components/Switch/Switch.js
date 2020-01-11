@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import PropTypes from "prop-types";
 
@@ -7,7 +7,7 @@ import classnames from "classnames";
 import "./Switch.scss";
 
 const Switch = ({
-	checked,
+	defaultChecked,
 	disabled,
 	size,
 	id,
@@ -15,63 +15,64 @@ const Switch = ({
 	children,
 	onChange,
 	...rest
-}) => (
-	<div className={classnames("simple-switch-wrapper", className)}>
-		<div
-			className={classnames(
-				"simple-input-container",
-				`simple-input-container-${size}`,
-				{
-					checked,
-					disabled
-				}
+}) => {
+	const [checked, setChecked] = useState(defaultChecked),
+		clas = classnames(
+			"simple-input-container",
+			`simple-input-container-${size}`,
+			{
+				checked,
+				disabled
+			}
+		);
+	function changeHandle(e) {
+		setChecked(!checked);
+		onChange && onChange();
+	}
+	return (
+		<div className={classnames("simple-switch-wrapper", className)}>
+			<div className={clas}>
+				<input
+					type="checkbox"
+					id={id}
+					checked={checked}
+					className={classnames("simple-input", {
+						disabled
+					})}
+					disabled={disabled}
+					onChange={changeHandle}
+					{...rest}
+				/>
+				<div
+					className={classnames("simple-switcher", `simple-switcher-${size}`, {
+						checked
+					})}
+				/>
+			</div>
+			{children && (
+				<label htmlFor={id} className="simple-label">
+					{children}
+				</label>
 			)}
-		>
-			<input
-				type="checkbox"
-				id={id}
-				checked={checked}
-				className={classnames("simple-input", {
-					disabled
-				})}
-				disabled={disabled}
-				onChange={onChange}
-				{...rest}
-			/>
-			<div
-				className={classnames("simple-switcher", `simple-switcher-${size}`, {
-					checked
-				})}
-			/>
 		</div>
-		{children && (
-			<label
-				htmlFor={id}
-				className={classnames("simple-label", {
-					actionable: Boolean(id)
-				})}
-			>
-				{children}
-			</label>
-		)}
-	</div>
-);
+	);
+};
 
 Switch.defaultProps = {
-	checked: false,
+	defaultChecked: true,
 	disabled: false,
-  size: "small",
-  onChange: () => {}
+	size: "middle",
+	onChange: () => {}
 };
 
 Switch.propTypes = {
-	checked: PropTypes.bool,
-	disabled: PropTypes.bool,
-	size: PropTypes.oneOf(["small", "large"]),
-	id: PropTypes.string,
-	className: PropTypes.string,
+	defaultChecked: PropTypes.bool, // 默认是否选中
+	disabled: PropTypes.bool, // 是否禁用
+	size: PropTypes.oneOf(["small", "middle", "large"]), // switch 大小
+	id: PropTypes.string, // 关联 label id
+	className: PropTypes.string, // 容器类名
 	children: PropTypes.node,
-	onChange: PropTypes.func.isRequired
+	onChange: PropTypes.func // switch 改变时的回调函数
 };
 
 export default Switch;

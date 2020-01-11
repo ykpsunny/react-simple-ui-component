@@ -6,6 +6,7 @@
 		height: 100%;
 		cursor: pointer;
 		appearance: none;
+		-webkit-appearance: none;
 		outline: none;
 
 		&.disabled {
@@ -15,10 +16,6 @@
 	}
 	.simple-label {
 		margin-left: 12px;
-
-		&.actionable {
-			cursor: pointer;
-		}
 	}
 }
 
@@ -26,11 +23,17 @@
 	position: relative;
 	display: flex;
 	align-items: center;
-
+	background-color: rgba(0, 0, 0, 0.25);
 	&-small {
 		width: 40px;
 		height: 24px;
 		border-radius: 24px;
+	}
+
+	&-middle {
+		width: 45px;
+		height: 27px;
+		border-radius: 27px;
 	}
 
 	&-large {
@@ -54,11 +57,16 @@
 	background-color: #fff;
 	border-radius: 100%;
 	pointer-events: none;
-	transition: all 0.4s ease;
+	transition: all 0.3s ease;
 
 	&-small {
 		width: 20px;
 		height: 20px;
+	}
+
+	&-middle {
+		width: 23px;
+		height: 23px;
 	}
 
 	&-large {

@@ -46,7 +46,7 @@ RadioGroup.propTypes = {
 	disibled: propTypes.bool, // 禁选所有子单选器
 	onChenge: propTypes.func, // 选项变化时的回调函数
 	value: propTypes.string, // 用于设置当前选中的值
-	className: propTypes.string
+	className: propTypes.string // 容器类名
 };
 
 export default RadioGroup;

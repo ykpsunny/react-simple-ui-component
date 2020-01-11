@@ -1,0 +1,10 @@
+.simple-sub-menu-wrapper{
+  width: 100%;
+  .simple-sub-menu-title{
+    height: 30px;
+    line-height: 30px;
+		&:hover {
+			color: #61dafb;
+		}
+  }
+}

@@ -1,14 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 import "./MenuItem.scss";
 
-import propTypes from "prop-types";
-
-import classnames from "classnames";
-
-function MenuItem({ content, children }) {
+function MenuItem({ children, ...rest }) {
 	return (
-		<li className="simple-Menu-item-wrapper">
+		<li className="simple-Menu-item-wrapper" {...rest}>
 			{children}
 		</li>
 	);

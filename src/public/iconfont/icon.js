@@ -7,3 +7,9 @@ export const CloseIcon = () => (
 		<use href="#icon-close1"></use>
 	</svg>
 );
+
+export const DownIcon = () => (
+	<svg className="icon" aria-hidden="true">
+		<use href="#icon-down"></use>
+	</svg>
+);

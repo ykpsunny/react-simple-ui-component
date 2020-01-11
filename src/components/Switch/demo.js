@@ -1,11 +1,14 @@
-import React from 'react'
+import React, { Fragment } from "react";
 
-import { Switch } from './'
+import { Switch } from "./";
 
-function SwitchDemo () {
-  return (
-    <Switch total={50} />
-  )
+function SwitchDemo() {
+	return (
+		<Fragment>
+			<Switch />
+			<Switch disabled />
+		</Fragment>
+	);
 }
 
-export default SwitchDemo
+export default SwitchDemo;

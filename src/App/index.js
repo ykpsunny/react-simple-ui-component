@@ -30,6 +30,8 @@ import DrawerDemo from "../components/Drawer/demo";
 
 import SwitchDemo from "../components/Switch/demo";
 
+import DropdownDemo from "../components/Dropdown/demo";
+
 const routerLink = [
 	{
 		path: "/button",
@@ -72,7 +74,7 @@ function App() {
 					})} */}
 				</aside>
 				<main>
-					<SwitchDemo />
+					<DropdownDemo />
 					{/* <Switch>
 						<Route
 							exact

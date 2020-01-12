@@ -4,6 +4,10 @@
   align-items: center;
   line-height: 30px;
   height: 30px;
+  padding: 0 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   &:hover{
     background-color: #efefef;
   }

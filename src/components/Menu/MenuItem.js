@@ -2,9 +2,11 @@ import React from "react";
 
 import "./MenuItem.scss";
 
-function MenuItem({ children, ...rest }) {
+import classnames from 'classnames'
+
+function MenuItem({ children, className, ...rest }) {
 	return (
-		<li className="simple-Menu-item-wrapper" {...rest}>
+		<li className={classnames("simple-Menu-item-wrapper", className)} {...rest}>
 			{children}
 		</li>
 	);

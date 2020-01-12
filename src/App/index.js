@@ -36,6 +36,8 @@ import MenuDemo from "../components/Menu/demo";
 
 import TabsDemo from "../components/Tabs/demo";
 
+import AvatarDemo from "../components/Avatar/demo";
+
 const routerLink = [
 	{
 		path: "/button",
@@ -78,7 +80,7 @@ function App() {
 					})} */}
 				</aside>
 				<main>
-					<TabsDemo />
+					<AvatarDemo />
 					{/* <Switch>
 						<Route
 							exact

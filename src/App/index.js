@@ -34,6 +34,8 @@ import DropdownDemo from "../components/Dropdown/demo";
 
 import MenuDemo from "../components/Menu/demo";
 
+import TabsDemo from "../components/Tabs/demo";
+
 const routerLink = [
 	{
 		path: "/button",
@@ -76,7 +78,7 @@ function App() {
 					})} */}
 				</aside>
 				<main>
-					<MenuDemo />
+					<TabsDemo />
 					{/* <Switch>
 						<Route
 							exact

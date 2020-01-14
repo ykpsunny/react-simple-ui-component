@@ -38,6 +38,8 @@ import TabsDemo from "../components/Tabs/demo";
 
 import AvatarDemo from "../components/Avatar/demo";
 
+import MessageDemo from "../components/Message/demo";
+
 const routerLink = [
 	{
 		path: "/button",
@@ -80,7 +82,7 @@ function App() {
 					})} */}
 				</aside>
 				<main>
-					<AvatarDemo />
+					<MessageDemo />
 					{/* <Switch>
 						<Route
 							exact

@@ -4,23 +4,35 @@ import propTypes from "prop-types";
 
 import "./Menu.scss";
 
-function Menu({ width, children, style, openKeys, onOpenChange, ...rest }) {
-	function renderChildren(children) {
-		return React.Children.map(children, child => {
-			let { type } = child
-			if (type.name === 'SubMenu') {
-				
-			}
-			return child
-		});
+class Menu extends React.PureComponent {
+	getChildContext() {
+		let { openKeys, onOpenChange } = this.props;
+		return {
+			openKeys,
+			onOpenChange
+		};
 	}
-	
-	return (
-		<ul className="simple-menu-wrapper" {...rest} style={{ width, ...style }}>
-			{renderChildren(children)}
-		</ul>
-	);
+	render() {
+		let {
+			width,
+			children,
+			style,
+			openKeys,
+			onOpenChange,
+			...rest
+		} = this.props;
+		return (
+			<ul className="simple-menu-wrapper" {...rest} style={{ width, ...style }}>
+				{children}
+			</ul>
+		);
+	}
 }
+
+Menu.childContextTypes = {
+	openKeys: propTypes.array,
+	onOpenChange: propTypes.func
+};
 
 Menu.defaultProps = {
 	width: 150,

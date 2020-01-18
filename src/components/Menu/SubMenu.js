@@ -6,7 +6,8 @@ import "./SubMenu.scss";
 
 let padding = 16
 
-function SubMenu(props) {
+function SubMenu(props, context) {
+	let { openKeys, onOpenChange } = context
 	function renderContent(children, paddingLeft) {
 		return React.Children.map(children, child => {
 			let { style = {} } = child.props,
@@ -46,6 +47,11 @@ function SubMenu(props) {
 	}
 	return render(props);
 }
+
+SubMenu.contextTypes = {
+	openKeys: propTypes.array,
+	onOpenChange: propTypes.func
+};
 
 SubMenu.defaultProps = {
 	title: "Title",

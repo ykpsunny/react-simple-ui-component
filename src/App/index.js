@@ -82,7 +82,7 @@ function App() {
 					})} */}
 				</aside>
 				<main>
-					<MessageDemo />
+					<MenuDemo />
 					{/* <Switch>
 						<Route
 							exact

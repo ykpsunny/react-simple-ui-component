@@ -40,6 +40,8 @@ import AvatarDemo from "../components/Avatar/demo";
 
 import MessageDemo from "../components/Message/demo";
 
+import ProgressDemo from "../components/Progress/demo";
+
 const routerLink = [
 	{
 		path: "/button",
@@ -82,7 +84,7 @@ function App() {
 					})} */}
 				</aside>
 				<main>
-					<MenuDemo />
+					<ProgressDemo />
 					{/* <Switch>
 						<Route
 							exact

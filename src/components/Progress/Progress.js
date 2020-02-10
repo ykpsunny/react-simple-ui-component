@@ -41,7 +41,7 @@ function Progress({ circleConfig, pointConfig, textConfig, arcConfig }) {
 	const endDeg = useMemo(() => {
 		let { percentage } = arcConfig,
 			number = Number(percentage.slice(0, percentage.length - 1));
-		return (360 / 100) * number;
+		return ((360 / 100) * number + 360 - arcConfig.startDeg) % 360;
 	}, [arcConfig.percentage]);
 
 	console.log(endDeg);
